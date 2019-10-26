@@ -8,6 +8,8 @@ This is a _base_ repository containing easily extendable backend server.
  - JWT authentication - [flask_jwt_extended](https://pypi.org/project/Flask-JWT-Extended/)
  - auto-generated swagger docs - [flask_restplus](https://pypi.org/project/flask-restplus/)
  - static typing (kinda) - [mypy](https://pypi.org/project/mypy/)
+ - unit tests - [unittest](https://docs.python.org/3/library/unittest.html)
+ - test coverage - [coverage](https://pypi.org/project/coverage/)
  
 ### How to run:
  - create virtualenv
@@ -16,8 +18,14 @@ This is a _base_ repository containing easily extendable backend server.
  - `python -m src`
  - ???
  - Profit
- 
+
+### Run unit tests and coverage
+ - `coverage run --source=src -m unittest discover`
+ - `coverage html -i`
+ - open `htmlcov/index.html`
+
 ### How to extend:
  - add more restplus resources
  - import them in `src/__main__.py`
+ - write unit tests
  - visit your swagger docs at `/api/v1`
