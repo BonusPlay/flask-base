@@ -1,6 +1,6 @@
 from enum import IntEnum
 from src import db, bcrypt, ma
-from marshmallow_enum import EnumField
+from marshmallow_enum import EnumField  # type: ignore
 
 
 class Roles(IntEnum):

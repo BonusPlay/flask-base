@@ -1,11 +1,11 @@
 from flask import request, jsonify, make_response
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource, fields  # type: ignore
 from src import db
 from .model import User, user_schema, users_schema
 from .wrappers import user_required
 from src.auth.wrappers import admin_required
 
-api = Namespace('users', description='User related stuff')
+api = Namespace('user', description='User related stuff')
 
 user_create_request = api.model('User Create Request', {
     'username': fields.String(required=True),
@@ -30,7 +30,7 @@ class UserListRes(Resource):
 
     @staticmethod
     @api.expect(user_create_request)
-    @api.response(200, 'OK')
+    @api.response(201, 'OK')
     @api.response(400, 'No JSON body found')
     @api.response(401, 'Bad username or password')
     def post():
@@ -50,7 +50,7 @@ class UserListRes(Resource):
 
         db.session.add(new_user)
         db.session.commit()
-        return user_schema.jsonify(new_user)
+        return make_response(user_schema.jsonify(new_user), 201)
 
 
 @api.route('/<int:user_id>')
@@ -82,7 +82,7 @@ class UserRes(Resource):
 
     @staticmethod
     @user_required
-    @api.expect(user_create_request)
+    @api.expect(user_modify_request)
     @api.response(200, 'OK')
     @api.response(404, 'User not found')
     def put(user_id):

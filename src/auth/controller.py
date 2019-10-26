@@ -1,6 +1,6 @@
 from flask import request, jsonify, make_response
-from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token, get_jwt_claims
-from flask_restplus import Namespace, fields, Resource
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token, get_jwt_claims  # type: ignore
+from flask_restplus import Namespace, fields, Resource  # type: ignore
 from src.user.model import User
 
 api = Namespace('auth', description='Authorization')

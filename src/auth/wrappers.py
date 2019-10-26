@@ -1,5 +1,5 @@
 from flask import jsonify, make_response
-from flask_jwt_extended import verify_jwt_in_request, get_jwt_claims
+from flask_jwt_extended import verify_jwt_in_request, get_jwt_claims  # type: ignore
 from src import jwt
 from src.user.model import User, Roles
 from functools import wraps

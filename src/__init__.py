@@ -1,8 +1,8 @@
 from flask import Flask
-from flask_jwt_extended import JWTManager
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
-from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager  # type: ignore
+from flask_sqlalchemy import SQLAlchemy  # type: ignore
+from flask_marshmallow import Marshmallow  # type: ignore
+from flask_bcrypt import Bcrypt  # type: ignore
 from .config import Config
 
 app = Flask(__name__)
