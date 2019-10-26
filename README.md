@@ -1,5 +1,7 @@
 # Flask-base
 
+![GitHub Actions status | BonusPlay/flask-base](https://github.com/BonusPlay/flask-base/workflows/Python%20application/badge.svg)
+
 This is a _base_ repository containing easily extendable backend server.
 
 ### Features
